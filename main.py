@@ -15,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-API_KEY_Credits = {os.getenv("API_KEY"): 3}
+API_KEY_Credits = {os.getenv("API_KEY"): 1000}
 print("API_KEY_Credits:", API_KEY_Credits)
 
 
