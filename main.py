@@ -2,9 +2,18 @@ import os
 import dotenv
 from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException, Header, Depends
+from fastapi.middleware.cors import CORSMiddleware
 
 dotenv.load_dotenv()
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Or replace "*" with ["http://localhost:5173"] for stricter security
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 API_KEY_Credits = {os.getenv("API_KEY"): 3}
 print("API_KEY_Credits:", API_KEY_Credits)
